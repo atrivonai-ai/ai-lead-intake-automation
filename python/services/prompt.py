@@ -12,12 +12,25 @@ Analyze the following business lead message.
 Lead message:
 {message}
 
-Identify:
+Return ONLY a valid JSON object.
 
-1. The lead's intent.
-2. The primary business need.
-3. The potential business value.
-4. The most appropriate suggested action.
+The JSON object must contain exactly these four fields:
 
-Return concise, business-focused information.
+{{
+  "intent": "The lead's main intent.",
+  "business_need": "The primary business problem or need.",
+  "potential_value": "The potential business value.",
+  "suggested_action": "The recommended next sales action."
+}}
+
+Strict output rules:
+- Return JSON only.
+- Do not use Markdown.
+- Do not use code fences.
+- Every value must be a string.
+- intent must be 200 characters or fewer.
+- business_need must be 200 characters or fewer.
+- potential_value must be 50 characters or fewer.
+- suggested_action must be 200 characters or fewer.
+- Keep all answers concise and business-focused.
 """.strip()

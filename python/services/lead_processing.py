@@ -20,7 +20,7 @@ class ProcessedLead(LeadInput):
 
 
 def process_lead(lead: LeadInput) -> ProcessedLead:
-    """Validate, analyze, score, and store a lead."""
+    """Validate, analyze, score, and store a lead in Notion."""
 
     score: LeadScore = calculate_lead_score(lead)
     analysis: LeadAnalysis = analyze_lead_message(lead.message)
@@ -35,7 +35,7 @@ def process_lead(lead: LeadInput) -> ProcessedLead:
         lead_source=lead.lead_source,
         message=lead.message,
         score=score.score,
-        priority=score.priority,
+        priority=score.priority.capitalize(),
         status="New",
         suggested_action=analysis.suggested_action,
         ai_intent=analysis.intent,

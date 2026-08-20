@@ -33,16 +33,20 @@ def test_process_lead(monkeypatch):
             assert kwargs["name"] == "Sarah Johnson"
             assert kwargs["email"] == "sarah@example.com"
             assert kwargs["company"] == "BrightTech"
+            assert kwargs["industry"] == "Technology"
+            assert kwargs["lead_source"] == "Referral"
+            assert kwargs["message"] == (
+                "We want to automate our lead management process."
+            )
             assert kwargs["score"] == 75
-            assert kwargs["priority"] == "high"
+            assert kwargs["priority"] == "High"
             assert kwargs["status"] == "New"
             assert kwargs["suggested_action"] == "Schedule discovery call"
             assert kwargs["ai_intent"] == "Automation enquiry"
             assert kwargs["business_need"] == "Lead management automation"
 
             return {
-                "id": "test-notion-page-id",
-                "object": "page",
+                "id": "notion-test-page-id",
             }
 
     monkeypatch.setattr(
@@ -81,4 +85,4 @@ def test_process_lead(monkeypatch):
     assert result.analysis.business_need == "Lead management automation"
     assert result.analysis.potential_value == "High"
     assert result.analysis.suggested_action == "Schedule discovery call"
-    assert result.notion_page_id == "test-notion-page-id"
+    assert result.notion_page_id == "notion-test-page-id"

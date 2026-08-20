@@ -8,7 +8,7 @@ from python.services import lead_processing
 
 
 def test_process_lead(monkeypatch):
-    """Test that lead processing combines scoring and AI analysis."""
+    """Test that lead processing combines scoring, AI analysis, and Notion storage."""
 
     def fake_score(lead):
         return type(
@@ -28,6 +28,23 @@ def test_process_lead(monkeypatch):
             suggested_action="Schedule discovery call",
         )
 
+    class FakeNotionService:
+        def create_lead(self, **kwargs):
+            assert kwargs["name"] == "Sarah Johnson"
+            assert kwargs["email"] == "sarah@example.com"
+            assert kwargs["company"] == "BrightTech"
+            assert kwargs["score"] == 75
+            assert kwargs["priority"] == "high"
+            assert kwargs["status"] == "New"
+            assert kwargs["suggested_action"] == "Schedule discovery call"
+            assert kwargs["ai_intent"] == "Automation enquiry"
+            assert kwargs["business_need"] == "Lead management automation"
+
+            return {
+                "id": "test-notion-page-id",
+                "object": "page",
+            }
+
     monkeypatch.setattr(
         lead_processing,
         "calculate_lead_score",
@@ -38,6 +55,12 @@ def test_process_lead(monkeypatch):
         lead_processing,
         "analyze_lead_message",
         fake_analysis,
+    )
+
+    monkeypatch.setattr(
+        lead_processing,
+        "NotionService",
+        FakeNotionService,
     )
 
     lead = LeadInput(
@@ -58,3 +81,4 @@ def test_process_lead(monkeypatch):
     assert result.analysis.business_need == "Lead management automation"
     assert result.analysis.potential_value == "High"
     assert result.analysis.suggested_action == "Schedule discovery call"
+    assert result.notion_page_id == "test-notion-page-id"

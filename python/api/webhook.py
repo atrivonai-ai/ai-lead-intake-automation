@@ -8,7 +8,6 @@ from python.models.response import LeadProcessingResponse
 from python.models.webhook import LeadWebhookRequest
 from python.services.lead_processing import process_lead
 
-
 router = APIRouter(prefix="/webhook", tags=["webhook"])
 
 
@@ -23,4 +22,8 @@ def receive_lead_webhook(
     return LeadProcessingResponse(
         message=f"Lead processed with {processed_lead.priority} priority.",
         status="success",
+        lead=payload.lead,
+        score=processed_lead.score,
+        priority=processed_lead.priority,
+        analysis=processed_lead.analysis,
     )

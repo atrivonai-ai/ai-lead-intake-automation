@@ -12,16 +12,14 @@ from python.services.prompt import build_lead_analysis_prompt
 
 
 def _parse_ai_response(raw_response: str) -> LeadAnalysis:
-    """
-    Parse the structured JSON returned by the AI provider.
-    """
+    """Parse the structured JSON returned by the AI provider."""
 
     cleaned_response = raw_response.strip()
 
     if cleaned_response.startswith("```"):
         lines = cleaned_response.splitlines()
 
-        if lines and lines[0].startswith("```"):
+        if lines and lines[0].strip().startswith("```"):
             lines = lines[1:]
 
         if lines and lines[-1].strip() == "```":
@@ -40,14 +38,15 @@ def _parse_ai_response(raw_response: str) -> LeadAnalysis:
         return LeadAnalysis.model_validate(parsed_response)
     except ValidationError as exc:
         raise ValueError(
-            "AI provider returned JSON that does not match the lead analysis contract."
+            "AI provider returned JSON that does not match "
+            f"the lead analysis contract. "
+            f"Validation error: {exc}. "
+            f"AI response: {parsed_response}"
         ) from exc
 
 
 def analyze_lead_message(message: str) -> LeadAnalysis:
-    """
-    Analyze a lead message using the configured AI provider.
-    """
+    """Analyze a lead message using the configured AI provider."""
 
     prompt = build_lead_analysis_prompt(message)
 

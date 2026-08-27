@@ -1,4 +1,6 @@
-**🤖 AI Lead Intake & Qualification Automation**
+from pathlib import Path
+
+content = """# 🤖 AI Lead Intake & Qualification Automation
 
 > **A practical AI automation system that turns incoming leads into structured, routed, and actionable business workflows.**
 
@@ -20,13 +22,13 @@ The system uses **Python and FastAPI** for lead processing and **n8n** for workf
 
 Manual lead handling often requires teams to repeatedly review leads, check information, retrieve documents, update records, and send follow ups.
 
-| Manual Task                | Operational Impact |
-
-| Review incoming leads      | Slow response times |
-| Check information          | Repetitive administration |
-| Retrieve documents         | Manual effort |
-| Update records             | Inconsistent record keeping |
-| Send follow ups            | Missed opportunities |
+| Manual Task | Operational Impact |
+|---|---|
+| Review incoming leads | Slow response times |
+| Check information | Repetitive administration |
+| Retrieve documents | Manual effort |
+| Update records | Inconsistent record keeping |
+| Send follow ups | Missed opportunities |
 
 The automation converts these repetitive activities into a **repeatable business workflow**.
 
@@ -72,7 +74,7 @@ The workflow separates **lead processing** from **workflow orchestration**.
 
 Workflow preserved: Both branches ultimately create a record in Notion, while each branch retains its own follow up process.
 
-**🔄 Workflow Logic**
+🔄 Workflow Logic
 01 · Webhook
 
 The Webhook receives the incoming lead processing request and starts the automation.
@@ -85,7 +87,7 @@ The HTTP Request sends the lead information to the FastAPI service, separating p
 
 The If node evaluates the processed lead and routes it to either the True or False path.
 
-**🟢 TRUE PATH · Calendar Workflow****
+🟢 TRUE PATH · Calendar Workflow
 If
  ↓
 Edit Fields
@@ -98,17 +100,14 @@ Merge
  └────────→ Edit Fields2
                 ↓
            Send an Email
-
-**Node**	                                 **Function**
-
-Edit Fields	                                 Prepares data for the calendar stage
-Google Calendar	                           Retrieves relevant calendar events
-Merge	                                       Receives the calendar result and continues to two downstream actions
-Notion	                                 Creates the lead database record
-Edit Fields2	                           Prepares final email information
-Send an Email	                           Sends the True path follow up
-
-**🔴 FALSE PATH · Information Retrieval Workflow**
+Node	Function
+Edit Fields	Prepares data for the calendar stage
+Google Calendar	Retrieves relevant calendar events
+Merge	Receives the calendar result and continues to two downstream actions
+Notion	Creates the lead database record
+Edit Fields2	Prepares final email information
+Send an Email	Sends the True path follow up
+🔴 FALSE PATH · Information Retrieval Workflow
 If
  ↓
 Edit Fields1
@@ -117,15 +116,12 @@ Google Drive
  ├────────→ Notion
  │
  └────────→ Send an Email1
-
-**Node**	                               **Function**
-
-Edit Fields1	                         Prepares data for Google Drive
-Google Drive	                         Retrieves the relevant file
-Notion	                               Creates the lead database record
-Send an Email1	                         Sends the False path communication
-
-**🗂️ Centralized Record Keeping**
+Node	Function
+Edit Fields1	Prepares data for Google Drive
+Google Drive	Retrieves the relevant file
+Notion	Creates the lead database record
+Send an Email1	Sends the False path communication
+🗂️ Centralized Record Keeping
 
 A key design feature is the shared Notion destination.
 
@@ -142,26 +138,21 @@ Notion
 
 Both outcomes are recorded in the same Notion database, providing consistent lead tracking while preserving different follow up workflows.
 
-**📧 Automated Communication**
-
+📧 Automated Communication
 Path	Email Flow
 🟢 True	Merge → Edit Fields2 → Send an Email
 🔴 False	Google Drive → Send an Email1
-
-**🧩 Technology Stack**
-
-Technology	                              Purpose
-Python	                              Lead processing logic
-FastAPI	                              API layer
-n8n	                                    Workflow orchestration
-Google Calendar	                        Calendar event retrieval
-Google Drive	                        File retrieval
-Gmail	                                    Automated email delivery
-Notion	                              Centralized lead records
-GitHub	                              Version control and portfolio presentation
-
-**🧠 Automation Patterns Demonstrated**
-
+🧩 Technology Stack
+Technology	Purpose
+Python	Lead processing logic
+FastAPI	API layer
+n8n	Workflow orchestration
+Google Calendar	Calendar event retrieval
+Google Drive	File retrieval
+Gmail	Automated email delivery
+Notion	Centralized lead records
+GitHub	Version control and portfolio presentation
+🧠 Automation Patterns Demonstrated
 Pattern	Demonstrated Capability
 🔌 API Integration	n8n connected to FastAPI through HTTP
 🔀 Conditional Routing	If node determines workflow path
@@ -174,34 +165,35 @@ Pattern	Demonstrated Capability
 
 This automation transforms manual lead handling into a structured, repeatable process.
 
-**Before**	                                         **After**
-Manual lead review	                             Automated processing
-Manual routing	                                   Conditional routing
-Manual calendar checks	                             Automated Calendar integration
-Manual document retrieval	                       Automated Drive retrieval
-Manual record updates	                             Automated Notion records
-Manual follow ups	                                   Automated email communication
-Disconnected systems	                             One connected workflow
-
-**Impact**
+Before	After
+Manual lead review	Automated processing
+Manual routing	Conditional routing
+Manual calendar checks	Automated Calendar integration
+Manual document retrieval	Automated Drive retrieval
+Manual record updates	Automated Notion records
+Manual follow ups	Automated email communication
+Disconnected systems	One connected workflow
+Impact
 
 Faster lead processing · Reduced administration · Consistent handling · Centralized records · Automated follow up · Multi system integration
 
-**🛠️ Skills Demonstrated**
+🛠️ Skills Demonstrated
 
 AI assisted lead processing · Python · FastAPI · REST APIs · n8n · Workflow orchestration · Conditional routing · Google Calendar · Google Drive · Gmail · Notion · Data transformation · Business process automation · Multi system integration
 
-**🔮 Future Improvements**
-
-**Improvement**	                                                **Purpose**
-Error handling	                                                Handle integration failures
-Retry logic	                                                      Retry failed operations
-Lead status tracking	                                          Track lead progression
-Automated testing	                                                Improve reliability
-Monitoring & reporting	                                          Measure workflow performance
-Conversion analytics	                                          Measure lead outcomes
-
-**🎯 Project Outcome**
+🔮 Future Improvements
+Improvement	Purpose
+Error handling	Handle integration failures
+Retry logic	Retry failed operations
+Duplicate detection	Prevent duplicate lead records
+Execution logging	Improve workflow visibility
+Lead status tracking	Track lead progression
+Automated testing	Improve reliability
+Production deployment	Prepare for production use
+Monitoring & reporting	Measure workflow performance
+Conversion analytics	Measure lead outcomes
+Stronger validation	Improve external service reliability
+🎯 Project Outcome
 
 The completed automation demonstrates:
 

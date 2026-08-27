@@ -72,7 +72,8 @@ The workflow separates **lead processing** from **workflow orchestration**.
 
 Workflow preserved: Both branches ultimately create a record in Notion, while each branch retains its own follow up process.
 
-🔄 Workflow Logic
+**🔄 Workflow Logic**
+
 01 · Webhook
 
 The Webhook receives the incoming lead processing request and starts the automation.

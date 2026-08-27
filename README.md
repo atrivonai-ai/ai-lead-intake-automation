@@ -1,6 +1,4 @@
-from pathlib import Path
-
-content = """# 🤖 AI Lead Intake & Qualification Automation
+**# 🤖 AI Lead Intake & Qualification Automation**
 
 > **A practical AI automation system that turns incoming leads into structured, routed, and actionable business workflows.**
 
@@ -100,14 +98,18 @@ Merge
  └────────→ Edit Fields2
                 ↓
            Send an Email
-Node	Function
-Edit Fields	Prepares data for the calendar stage
-Google Calendar	Retrieves relevant calendar events
-Merge	Receives the calendar result and continues to two downstream actions
-Notion	Creates the lead database record
-Edit Fields2	Prepares final email information
-Send an Email	Sends the True path follow up
+
+**Node Function**
+
+Edit-Fields	Prepares data for the calendar stage
+Google Calendar-Retrieves relevant calendar events
+Merge-Receives the calendar result and continues to two downstream actions
+Notion-Creates the lead database record
+Edit Fields2-Prepares final email information
+Send an Email-Sends the True path follow up
+
 🔴 FALSE PATH · Information Retrieval Workflow
+
 If
  ↓
 Edit Fields1
@@ -121,6 +123,7 @@ Edit Fields1	Prepares data for Google Drive
 Google Drive	Retrieves the relevant file
 Notion	Creates the lead database record
 Send an Email1	Sends the False path communication
+
 🗂️ Centralized Record Keeping
 
 A key design feature is the shared Notion destination.
@@ -142,17 +145,21 @@ Both outcomes are recorded in the same Notion database, providing consistent lea
 Path	Email Flow
 🟢 True	Merge → Edit Fields2 → Send an Email
 🔴 False	Google Drive → Send an Email1
-🧩 Technology Stack
+
+**🧩 Technology Stack**
+
 Technology	Purpose
-Python	Lead processing logic
-FastAPI	API layer
-n8n	Workflow orchestration
-Google Calendar	Calendar event retrieval
-Google Drive	File retrieval
-Gmail	Automated email delivery
-Notion	Centralized lead records
-GitHub	Version control and portfolio presentation
+Python-Lead processing logic
+FastAPI-API layer
+n8n-Workflow orchestration
+Google Calendar-Calendar event retrieval
+Google Drive-File retrieval
+Gmail-Automated email delivery
+Notion-Centralized lead records
+GitHub-Version control and portfolio presentation
+
 🧠 Automation Patterns Demonstrated
+
 Pattern	Demonstrated Capability
 🔌 API Integration	n8n connected to FastAPI through HTTP
 🔀 Conditional Routing	If node determines workflow path
@@ -165,15 +172,16 @@ Pattern	Demonstrated Capability
 
 This automation transforms manual lead handling into a structured, repeatable process.
 
-Before	After
-Manual lead review	Automated processing
-Manual routing	Conditional routing
-Manual calendar checks	Automated Calendar integration
-Manual document retrieval	Automated Drive retrieval
-Manual record updates	Automated Notion records
-Manual follow ups	Automated email communication
-Disconnected systems	One connected workflow
-Impact
+Before	                   After
+Manual lead review	       Automated processing
+Manual routing	           Conditional routing
+Manual calendar checks	   Automated Calendar integration
+Manual document retrieval	 Automated Drive retrieval
+Manual record updates	     Automated Notion records
+Manual follow ups	         Automated email communication
+Disconnected systems	     One connected workflow
+
+**Impact**
 
 Faster lead processing · Reduced administration · Consistent handling · Centralized records · Automated follow up · Multi system integration
 
@@ -182,17 +190,15 @@ Faster lead processing · Reduced administration · Consistent handling · Centr
 AI assisted lead processing · Python · FastAPI · REST APIs · n8n · Workflow orchestration · Conditional routing · Google Calendar · Google Drive · Gmail · Notion · Data transformation · Business process automation · Multi system integration
 
 🔮 Future Improvements
-Improvement	Purpose
-Error handling	Handle integration failures
-Retry logic	Retry failed operations
-Duplicate detection	Prevent duplicate lead records
-Execution logging	Improve workflow visibility
-Lead status tracking	Track lead progression
-Automated testing	Improve reliability
-Production deployment	Prepare for production use
-Monitoring & reporting	Measure workflow performance
-Conversion analytics	Measure lead outcomes
-Stronger validation	Improve external service reliability
+
+Error handling-Handle integration failures
+Retry logic	Retry-failed operations
+Execution logging-Improve workflow visibility
+Lead status tracking-Track lead progression
+Automated testing-Improve reliability
+Monitoring & reporting-Measure workflow performance
+Conversion analytics-Measure lead outcomes
+
 🎯 Project Outcome
 
 The completed automation demonstrates:

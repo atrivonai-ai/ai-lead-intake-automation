@@ -222,6 +222,7 @@ Conditional Routing
 │ Email            │                  │
 └──────────────────┴──────────────────┘
 
+
 The project demonstrates the ability to translate a business process into an automated, multi system workflow connecting API processing, business logic, external services, database operations, and communication.
 
 ⭐ Key Takeaway

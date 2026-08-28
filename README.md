@@ -1,6 +1,13 @@
 **# 🤖 AI Lead Intake & Qualification Automation**
 
 > **A practical AI automation system that turns incoming leads into structured, routed, and actionable business workflows.**
+>
+> ### Workflow Demo
+
+The video demonstrates the complete automation from lead submission through AI analysis, routing, email delivery, scheduling, and lead record creation.
+
+https://drive.google.com/file/d/1SLpliX-NLUBn6lyU7_VwAtfsODpb4IfT/view?usp=sharing
+
 
 ---
 
@@ -149,40 +156,6 @@ Path	Email Flow
 
 ## Automation Workflow
 
-
-
-This workflow receives the lead, validates the information, analyzes the lead, determines the appropriate action, and routes the lead through the relevant automation.
-
-<img width="797" height="323" alt="main n8n workflow" src="https://github.com/user-attachments/assets/5037d4ee-3638-408e-b12f-9622696f6f12" />
-
-### Workflow Demo
-
-The video demonstrates the complete automation from lead submission through AI analysis, routing, email delivery, scheduling, and lead record creation.
-
-https://drive.google.com/file/d/1SLpliX-NLUBn6lyU7_VwAtfsODpb4IfT/view?usp=sharing
-
-
-## Meeting Scheduling
-
-When a lead requires a meeting, the workflow provides the lead with the option to schedule a discovery call.
-
-<img width="737" height="277" alt="booking link email" src="https://github.com/user-attachments/assets/939f02d4-426e-4670-87da-698380f45cba" />
-
-
-## Brochure Delivery
-
-When a lead requests information, the workflow automatically sends a professional email with the relevant brochure.
-
-<img width="734" height="358" alt="Email with brochure attached" src="https://github.com/user-attachments/assets/cd1a0138-297a-4d37-bd83-b6cff975ac5a" />
-
-
-## Lead Record in Notion
-
-The qualified lead is automatically added to Notion with the relevant lead information and qualification details.
-
-<img width="877" height="230" alt="Notion_lead_database_1" src="https://github.com/user-attachments/assets/f652a1ca-0612-4cee-a438-f289eb94bbb8" />
-
-<img width="944" height="268" alt="Notion_lead_database_2" src="https://github.com/user-attachments/assets/9dc5baab-9fc9-453b-a327-788b38fb52f5" />
 
 **🧩 Technology Stack**
 
